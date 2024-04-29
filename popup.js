@@ -49,14 +49,14 @@ function displayNotes(notes) {
       editNote(note.url);
     });
 
-    var deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "&#128465;"; // Trashcan icon
-    deleteButton.addEventListener("click", function () {
-      deleteNote(note.url);
-    });
+    // var deleteButton = document.createElement("button");
+    // deleteButton.innerHTML = "&#128465;"; // Trashcan icon
+    // deleteButton.addEventListener("click", function () {
+    //   deleteNote(note.url);
+    // });
 
     actionsElement.appendChild(editButton);
-    actionsElement.appendChild(deleteButton);
+    // actionsElement.appendChild(deleteButton);
 
     listItem.appendChild(titleElement);
     listItem.appendChild(actionsElement);
@@ -78,15 +78,15 @@ function editNote(url) {
   }
 }
 
-async function deleteNote(url) {
-  var confirmDelete = confirm("Are you sure you want to delete this note?");
-  if (confirmDelete) {
-    try {
-      await fetch(url, { method: "DELETE" });
-      console.log("Note deleted:", url);
-      // Optionally, you can refresh the note list here
-    } catch (error) {
-      console.error("Error deleting note:", error);
-    }
-  }
-}
+// async function deleteNote(url) {
+//   var confirmDelete = confirm("Are you sure you want to delete this note?");
+//   if (confirmDelete) {
+//     try {
+//       await fetch(url, { method: "DELETE" });
+//       console.log("Note deleted:", url);
+//       // Optionally, you can refresh the note list here
+//     } catch (error) {
+//       console.error("Error deleting note:", error);
+//     }
+//   }
+// }
