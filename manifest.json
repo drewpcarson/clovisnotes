@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Note List",
+  "version": "1.0",
+  "description": "Display a list of note titles with edit and delete buttons.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

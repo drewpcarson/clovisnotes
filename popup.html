@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Note List</title>
+    <style>
+      body {
+        width: 400px; /* Set the desired width here */
+        padding: 10px;
+      }
+      .note-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .note-item:hover {
+        background-color: #f0f0f0;
+      }
+      .note-title {
+        flex-grow: 1;
+      }
+      .note-actions {
+        display: flex;
+      }
+      .note-actions button {
+        margin-left: 5px;
+      }
+      .note-actions button:hover {
+        cursor: pointer;
+      }
+    </style>
+    <script src="popup.js" type="module"></script>
+  </head>
+  <body>
+    <h1>Note List</h1>
+    <div id="noteList"></div>
+  </body>
+</html>
