@@ -1,10 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Note List",
+  "name": "Clovis Notes",
   "version": "1.0",
-  "description": "Display a list of note titles with edit and delete buttons.",
-  "permissions": ["activeTab", "scripting"],
+  "description": "Making your Ai Pin notes easy to edit",
+  "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
+  "host_permissions": ["*://humane.center/*"],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["*://humane.center/notes/*"],
+      "js": ["content.js"]
+    }
+  ]
 }
