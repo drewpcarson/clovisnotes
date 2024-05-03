@@ -6,21 +6,21 @@ function attachNoteEvents() {
     note.addEventListener("mouseenter", showCustomMenu);
     note.addEventListener("mouseleave", hideCustomMenu);
   }
+}
 
-  function showCustomMenu() {
-    chrome.runtime.sendMessage({ type: "customMenuShow" });
-  }
+function showCustomMenu() {
+  chrome.runtime.sendMessage({ type: "customMenuShow" });
+}
 
-  function hideCustomMenu() {
-    chrome.runtime.sendMessage({ type: "customMenuHide" });
-  }
+function hideCustomMenu() {
+  chrome.runtime.sendMessage({ type: "customMenuHide" });
 }
 
 // add an 'edit' button to each note's individual screen
 function addEditButton() {
   setTimeout(() => {
     let toolbar = document.querySelector("div[class^=Toolbar_right] > div");
-    let delButton = toolbar.querySelector("button[class^=MediaViewButton]");
+    let delButton = toolbar.querySelector("button");
     if (toolbar && delButton) {
       let editButton = document.createElement("button");
       editButton.classList.add(delButton.classList[0]);
@@ -35,16 +35,8 @@ function addEditButton() {
   }, 1000);
 }
 
-// attach events when the URL changes (Vercel uses client-side routing)
-function handleURLChange() {
-  console.log("URL changed");
-  attachNoteEvents();
-  if (!window.location.href.includes("/edit")) {
-    addEditButton();
-  }
+// when the page loads, attach the event listeners
+attachNoteEvents();
+if (!window.location.href.includes("/edit")) {
+  addEditButton();
 }
-
-// handle URL changes
-handleURLChange();
-window.addEventListener("hashchange", handleURLChange);
-window.addEventListener("popstate", handleURLChange);

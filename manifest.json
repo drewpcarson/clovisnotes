@@ -13,7 +13,6 @@
   },
   "content_scripts": [
     {
-      "run_at": "document_end",
       "matches": ["*://humane.center/notes/*"],
       "js": ["content.js"]
     }
