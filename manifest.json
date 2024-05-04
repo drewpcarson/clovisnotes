@@ -16,5 +16,8 @@
       "matches": ["*://humane.center/notes/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "omnibox": {
+    "keyword": "notes"
+  }
 }

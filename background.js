@@ -25,3 +25,13 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   let link = info.linkUrl + "/edit";
   chrome.tabs.create({ url: link });
 });
+
+// Omnibox
+chrome.omnibox.onInputEntered.addListener((text, disposition) => {
+  let url = `https://humane.center/notes/search?q=${encodeURIComponent(text)}`;
+  if (disposition === "newForegroundTab") {
+    chrome.tabs.create({ url });
+  } else {
+    chrome.tabs.update({ url });
+  }
+});

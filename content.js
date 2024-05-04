@@ -20,7 +20,7 @@ function hideCustomMenu() {
 function addEditButton() {
   setTimeout(() => {
     let toolbar = document.querySelector("div[class^=Toolbar_right] > div");
-    let delButton = toolbar.querySelector("button");
+    let delButton = toolbar.querySelector("button[class^=Media");
     if (toolbar && delButton) {
       let editButton = document.createElement("button");
       editButton.classList.add(delButton.classList[0]);
